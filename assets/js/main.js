@@ -74,6 +74,11 @@ function initToc() {
     a.className = h.tagName === 'H3' ? 'toc-sub' : 'toc-main';
     listEl.appendChild(a);
   });
+
+  // 목차를 post-header 바로 아래가 아니라, 본문 첫 소제목 바로 위(옛날에 글쓴이가
+  // 수동으로 "## Contents" 목록을 적어두던 자리)로 옮김
+  var firstHeading = headings[0];
+  firstHeading.parentNode.insertBefore(wrapper, firstHeading);
 }
 
 // ===== #feature:copy-code =====
