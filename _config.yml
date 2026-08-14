@@ -19,10 +19,11 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag # ===== #feature:seo-og ===== (OG 이미지/메타태그 자동 생성, url 값 필요)
 
-# ===== #feature:categories-tags =====
-# 포스트 작성 시 front matter에 아래처럼 추가하면 카테고리/태그 페이지에 자동 반영됨
-#   categories: [Karpathy]
-#   tags: [neural-network, backprop]
+# ===== #feature:categories =====
+# 포스트 작성 시 front matter에 아래처럼 추가하면 /categories/ 페이지에 자동 반영됨.
+# 여러 개를 넣으면 각 카테고리 페이지에 모두 나타나지만, 포스트 상단/홈 목록에 뜨는
+# eyebrow 배지는 항상 첫 번째 값만 씀 — 대표 카테고리를 맨 앞에 쓸 것.
+#   categories: [LLM]
 
 # ===== #feature:comments-giscus =====
 # 특정 포스트만 댓글을 끄고 싶으면 그 포스트 front matter에 comments: false 추가
