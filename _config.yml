@@ -9,6 +9,15 @@ url: "" # #config: 본인 블로그 주소로 채우기 (예: https://jungjinuuu
 github_username: jungjinuuu
 # linkedin_username: #config: 여기에 본인 LinkedIn 핸들을 넣으면 푸터에 자동으로 링크가 뜸 (예: jungjinuuu -> linkedin.com/in/jungjinuuu)
 
+# ===== #design:nav-bar =====
+# 상단 네비게이션 순서/구성을 직접 지정 (지정 안 하면 site.pages 순서를 그대로 씀).
+# now.markdown은 일부러 뺐음 — 페이지 자체(/now/)는 그대로 남아있고, 여기에 다시
+# 추가하면 nav에 다시 뜸.
+header_pages:
+  - about.markdown
+  - categories/index.html
+  - archive/index.html
+
 # ===== #feature:dark-mode =====
 # 다크모드는 minima 내장 기능이 아니라 assets/main.scss의 #feature:dark-mode 블록 +
 # assets/js/main.js의 초기화 스크립트로 직접 구현되어 있음 (버튼 클릭 시 html에 data-theme 속성을 토글)
