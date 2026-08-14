@@ -66,3 +66,22 @@ bundle exec jekyll serve
 `assets/js/main.js` 맨 위 `DOMContentLoaded` 안의 `initXxx();` 줄을 지우면 그 기능의 동작(JS)만 꺼집니다.
 페이지에 남아있는 버튼/영역까지 완전히 지우려면 `_layouts/post.html` 또는 `_layouts/default.html`에서
 해당 `#feature:` 주석으로 감싸진 블록을 통째로 지우면 됩니다.
+
+## 디자인 시스템 (Apple 스타일)
+색/타이포/간격은 `assets/main.scss` 맨 위 `#design:tokens` 블록의 CSS 변수로 관리됩니다.
+여기 값만 바꾸면 사이트 전체(라이트+다크 모두)에 반영돼요.
+
+- `--apl-accent`: 포인트 색 (링크, 카테고리 배지, 진행률 바 등)
+- `--apl-bg` / `--apl-text`: 배경/글자색
+- `--apl-font-display` / `--apl-font-text`: 제목/본문 폰트 (맥/사파리에서는 자동으로 SF Pro로 보임)
+
+디자인 관련 코드도 같은 방식으로 찾을 수 있습니다:
+```
+grep -rn "#design:" .
+```
+- `#design:tokens` — 색/폰트/간격 변수
+- `#design:base` — 기본 타이포그래피
+- `#design:buttons` — 알약 모양 버튼
+- `#design:nav-bar` — 상단 고정 블러 바
+- `#design:post-hero` — 포스트 제목 영역 (eyebrow + 큰 타이틀 + 등장 애니메이션)
+- `#design:home-list` — 홈 글 목록

@@ -4,6 +4,10 @@ layout: default
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
+    <!-- ===== #design:post-hero (eyebrow 라벨) ===== -->
+    {% if page.categories.size > 0 %}
+    <p class="post-eyebrow">{{ page.categories.first }}</p>
+    {% endif %}
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
       <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
@@ -20,11 +24,10 @@ layout: default
       • <span class="reading-time">{{ reading_time }}분 읽기</span>
     </p>
 
-    <!-- ===== #feature:categories-tags (포스트 상단 표시) ===== -->
-    {% if page.categories.size > 0 or page.tags.size > 0 %}
+    <!-- ===== #feature:categories (포스트 상단 표시) ===== -->
+    {% if page.categories.size > 0 %}
     <div class="post-taxonomy">
       {% for cat in page.categories %}<a class="post-category" href="{{ '/categories/' | relative_url }}#{{ cat | slugify }}">{{ cat }}</a>{% endfor %}
-      {% for tag in page.tags %}<a class="post-tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">#{{ tag }}</a>{% endfor %}
     </div>
     {% endif %}
   </header>

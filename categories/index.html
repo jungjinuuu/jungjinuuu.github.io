@@ -11,14 +11,16 @@ permalink: /categories/
 <p>아직 카테고리가 지정된 글이 없습니다.</p>
 {% endif %}
 
-{% for cat in all_cats %}
-  {% assign posts_in_cat = site.posts | where_exp: "post", "post.categories contains cat" %}
-  <div class="category-group" id="{{ cat | slugify }}">
-    <h2>{{ cat }} <small>({{ posts_in_cat.size }})</small></h2>
-    <ul>
-      {% for post in posts_in_cat %}
-      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a> <span class="reading-time">{{ post.date | date: "%Y-%m-%d" }}</span></li>
-      {% endfor %}
-    </ul>
-  </div>
-{% endfor %}
+<div class="taxonomy-index">
+  {% for cat in all_cats %}
+    {% assign posts_in_cat = site.posts | where_exp: "post", "post.categories contains cat" %}
+    <div class="category-group" id="{{ cat | slugify }}">
+      <h2>{{ cat }} <small>({{ posts_in_cat.size }})</small></h2>
+      <ul>
+        {% for post in posts_in_cat %}
+        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a> <span class="reading-time">{{ post.date | date: "%Y-%m-%d" }}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>

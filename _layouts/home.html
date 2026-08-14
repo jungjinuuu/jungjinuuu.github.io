@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<!-- ===== #design:home-hero ===== -->
+<div class="home-hero">
+  {%- if site.tagline -%}
+  <p class="home-hero-eyebrow">{{ site.tagline }}</p>
+  {%- endif -%}
+  <h1 class="home-hero-title">{{ page.title | default: site.title }}</h1>
+  {%- if page.subtitle or site.description -%}
+  <p class="home-hero-subtitle">{{ page.subtitle | default: site.description }}</p>
+  {%- endif -%}
+</div>
+
+<div class="post-list-wrap">
+  {%- if site.posts.size > 0 -%}
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+      <li>
+        <a class="post-link-block" href="{{ post.url | relative_url }}">
+          {%- if post.categories.size > 0 -%}
+          <p class="post-card-eyebrow">{{ post.categories.first }}</p>
+          {%- endif -%}
+          <h2 class="post-link">
+            <span>{{ post.title | escape }}</span>
+            <span class="post-link-arrow" aria-hidden="true">→</span>
+          </h2>
+          {%- if post.excerpt -%}
+          <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 32 }}</p>
+          {%- endif -%}
+          <p class="post-meta">
+            <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+              {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+              {{ post.date | date: date_format }}
+            </time>
+            {%- assign words = post.content | strip_html | number_of_words -%}
+            {%- assign reading_time = words | divided_by: 200 | at_least: 1 -%}
+            • <span class="reading-time">{{ reading_time }}분 읽기</span>
+          </p>
+        </a>
+      </li>
+      {%- endfor -%}
+    </ul>
+
+    <p class="rss-subscribe">구독 <a href="{{ "/feed.xml" | relative_url }}">RSS</a></p>
+  {%- endif -%}
+</div>
