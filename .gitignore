@@ -21,3 +21,6 @@ vendor/
 .env
 *.key
 *.pem
+
+# Obsidian
+.obsidian/
