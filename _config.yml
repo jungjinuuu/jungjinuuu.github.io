@@ -11,8 +11,6 @@ github_username: jungjinuuu
 
 # ===== #design:nav-bar =====
 # 상단 네비게이션 순서/구성을 직접 지정 (지정 안 하면 site.pages 순서를 그대로 씀).
-# now.markdown은 일부러 뺐음 — 페이지 자체(/now/)는 그대로 남아있고, 여기에 다시
-# 추가하면 nav에 다시 뜸.
 header_pages:
   - about.markdown
   - categories/index.html

@@ -12,7 +12,7 @@ grep -rn "#design:post-hero" .
 기능 목록: `dark-mode`, `math-katex`, `search`, `toc`, `categories`,
 `copy-code`, `lightbox`, `share`, `related-posts`, `prev-next-nav`,
 `comments-giscus`, `scroll-progress`, `visitor-counter`, `archive-timeline`,
-`reading-time`, `now-page`, `seo-og`, `404`
+`reading-time`, `seo-og`, `404`
 
 디자인 블록 목록: `tokens`, `base`, `buttons`, `nav-bar`, `home-hero`, `post-hero`,
 `home-list`, `footer` (모두 `assets/main.scss` 안에 있음)
@@ -75,7 +75,6 @@ grep -rn "#config:" .
 - **스크롤 진행률 바**: 화면 최상단 얇은 바.
 - **방문자 카운터**: hits.sh 무료 배지, `_config.yml`의 `url` 채우면 자동 활성화.
 - **아카이브**: `/archive/` — 연도별 타임라인.
-- **Now 페이지**: `/now/` — 직접 내용을 채워 넣는 페이지.
 - **SEO/OG 태그**: `jekyll-seo-tag` 플러그인이 `_config.yml` 값 기반으로 자동 생성.
 
 ## 로컬에서 미리보기
