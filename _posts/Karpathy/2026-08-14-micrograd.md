@@ -1,3 +1,8 @@
+---
+layout: post
+title: <Andrej Karpathy> - Micrograd
+date: 2026-08-14
+---
 
 This is my first post in a series following Andrej Karpathy's *Zero to Hero*, starting with **Building micrograd**.
 
