@@ -13,19 +13,6 @@ In this post, I want to reconstruct that process from both mathematical and impl
 
 I recommend reading this post alongside the micrograd source code, especially [`engine.py`](https://github.com/karpathy/micrograd/blob/master/micrograd/engine.py) and [`nn.py`](https://github.com/karpathy/micrograd/blob/master/micrograd/nn.py).
 
-## Contents
-
-1. Derivatives
-2. The `Value` Class
-3. Computational Graphs
-4. Backpropagation
-5. Extending Autograd
-6. Neural Networks
-7. From micrograd to Large Neural Networks
-8. Closing Thoughts
-
----
-
 ## 1. Derivatives
 
 The [derivative](https://en.wikipedia.org/wiki/Derivative) of a function is defined as
