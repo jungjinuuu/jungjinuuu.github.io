@@ -1,0 +1,23 @@
+{% comment %}
+  ===== #feature:comments-giscus =====
+  #config: giscus.app 에 접속 -> 본인 저장소(jungjinuuu/jungjinuuu.github.io) 선택 -> Discussions 탭 활성화 후
+  발급되는 data-repo-id / data-category-id 값을 아래에 채워넣어야 댓글이 실제로 동작함.
+  그 전까지는 스크립트만 로드되고 위젯은 비어 보임(에러는 아님).
+{% endcomment %}
+<div class="comments-wrapper">
+  <script src="https://giscus.app/client.js"
+          data-repo="jungjinuuu/jungjinuuu.github.io"
+          data-repo-id="#config:REPO_ID"
+          data-category="Announcements"
+          data-category-id="#config:CATEGORY_ID"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="preferred_color_scheme"
+          data-lang="ko"
+          crossorigin="anonymous"
+          async>
+  </script>
+</div>

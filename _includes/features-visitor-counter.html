@@ -1,0 +1,10 @@
+{% comment %}
+  ===== #feature:visitor-counter =====
+  hits.sh 무료 배지 사용, 별도 가입/설정 불필요. _config.yml의 url 값이 있어야 정상 동작함.
+{% endcomment %}
+{% if site.url and site.url != "" %}
+<div class="visitor-counter">
+  <img src="https://hits.sh/{{ site.url | remove_first: 'https://' | remove_first: 'http://' }}{{ page.url | relative_url }}.svg?style=flat-square&label=views&color=888888"
+       alt="visitor count" loading="lazy">
+</div>
+{% endif %}

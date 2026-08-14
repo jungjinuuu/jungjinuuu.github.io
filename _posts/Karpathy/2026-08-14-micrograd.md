@@ -2,6 +2,8 @@
 layout: post
 title: <Andrej Karpathy> - Micrograd
 date: 2026-08-14
+categories: [Karpathy]
+tags: [neural-network, backprop, autograd]
 ---
 
 This is my first post in a series following Andrej Karpathy's *Zero to Hero*, starting with **Building micrograd**.
@@ -272,7 +274,7 @@ $$
 
 to propagate a gradient backward.
 
-![[chain-rule-diagram.svg|700]]
+<img src="{{ '/assets/images/micrograd/chain-rule-diagram.svg' | relative_url }}" alt="chain rule diagram" width="700">
 
 For a longer chain,
 
@@ -356,7 +358,7 @@ and proceeds through the graph in reverse topological order. This guarantees tha
 
 At this point, `Value` is no longer just a scalar wrapper. It has become a small **automatic differentiation engine**, and running `backward()` on our small example gives every node both a `data` and a `grad`:
 
-![[micrograd_comp_graph.svg|700]]
+<img src="{{ '/assets/images/micrograd/micrograd_comp_graph.svg' | relative_url }}" alt="micrograd computational graph" width="700">
 
 ---
 
@@ -477,7 +479,7 @@ $$
 3\rightarrow4\rightarrow4\rightarrow1
 $$
 
-![[mlp-structure.svg|700]]
+<img src="{{ '/assets/images/micrograd/mlp-structure.svg' | relative_url }}" alt="MLP structure" width="700">
 
 In standard neural-network notation, a layer is often summarized as
 

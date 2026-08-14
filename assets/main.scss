@@ -1,0 +1,270 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import "minima";
+
+// ============================================================
+// 아래부터는 이 블로그에 추가한 커스텀 스타일입니다.
+// 모든 블록은 #feature:이름 주석으로 구역이 나뉘어 있습니다.
+// 특정 기능의 색/간격/애니메이션만 고치고 싶으면 해당 태그를 검색해서
+// 그 블록만 수정하면 됩니다. (minima 원본 변수 $text-color, $background-color,
+// $brand-color, $grey-color-light/dark 는 위 @import "minima" 덕분에 그대로 쓸 수 있음)
+
+/* ============================================================
+   #feature:dark-mode
+   minima 2.5는 CSS 변수를 안 쓰는 구버전이라, 이 블로그만의 CSS 변수를
+   따로 정의하고 주요 선택자들을 직접 오버라이드하는 방식으로 구현함.
+   ============================================================ */
+:root {
+  --jj-text: #{$text-color};
+  --jj-bg: #{$background-color};
+  --jj-brand: #{$brand-color};
+  --jj-grey-light: #{$grey-color-light};
+  --jj-grey-dark: #{$grey-color-dark};
+  --jj-code-bg: #eef;
+}
+
+html[data-theme="dark"] {
+  --jj-text: #c9c9c9;
+  --jj-bg: #181818;
+  --jj-brand: #6ea8fe;
+  --jj-grey-light: #333333;
+  --jj-grey-dark: #999999;
+  --jj-code-bg: #1e1e1e;
+
+  body { color: var(--jj-text); background-color: var(--jj-bg); }
+  a { color: var(--jj-brand); }
+  .site-header { border-top-color: var(--jj-brand); border-bottom-color: var(--jj-grey-light); }
+  .site-title, .site-title:visited { color: var(--jj-text); }
+  .site-nav .page-link { color: var(--jj-text); }
+  .site-nav .menu-icon > svg path { fill: var(--jj-text); }
+  .site-footer { border-top-color: var(--jj-grey-light); }
+  .footer-heading { color: var(--jj-text); }
+  .footer-col-wrapper, .contact-list, .social-media-list { color: var(--jj-grey-dark); }
+  table { color: var(--jj-text); }
+  table tr { background-color: var(--jj-bg); border-top-color: var(--jj-grey-light); }
+  table tr:nth-child(2n) { background-color: #202020; }
+  table th, table td { border-color: var(--jj-grey-light); }
+  blockquote { color: var(--jj-grey-dark); border-left-color: var(--jj-grey-light); }
+  code, pre { background-color: var(--jj-code-bg); }
+
+  // #feature:copy-code (코드블록 문법 강조 다크 팔레트)
+  .highlight, .highlighter-rouge .highlight { background: var(--jj-code-bg); }
+  .highlight {
+    .c, .cm, .c1 { color: #8a8a8a; }
+    .cp, .cs, .gh, .go, .gu, .nn, .bp { color: #9c9c9c; }
+    .err { color: #f5c6c6; background-color: #6e2020; }
+    .gd { color: #ffb3b3; background-color: #3a1f1f; }
+    .gd .x { color: #ffb3b3; background-color: #4a2323; }
+    .gi { color: #b3ffb3; background-color: #1f3a1f; }
+    .gi .x { color: #b3ffb3; background-color: #234a23; }
+    .gr, .gt { color: #ff8080; }
+    .gp { color: #999999; }
+    .k, .kc, .kd, .kp, .kr, .ow, .o { color: #ff9ecf; }
+    .kt, .nc { color: #82aaff; }
+    .m, .mf, .mh, .mi, .mo, .il { color: #c3a6ff; }
+    .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx { color: #d4c37d; }
+    .sr { color: #7fd992; }
+    .ss { color: #7fbfff; }
+    .na, .no, .nv, .vc, .vg, .vi { color: #7fd9c4; }
+    .nb { color: #82aaff; }
+    .ne, .nf { color: #7fd992; }
+    .nt { color: #ff8fc0; }
+    .w { color: #444444; }
+  }
+}
+
+.header-actions {
+  display: inline-flex;
+  gap: 6px;
+  float: right;
+  margin-top: 6px;
+}
+.header-btn {
+  background: none;
+  border: 1px solid $grey-color-light;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 5px 9px;
+  color: inherit;
+}
+.header-btn:hover { opacity: 0.7; }
+
+/* ============================================================
+   #feature:scroll-progress
+   ============================================================ */
+#scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--jj-brand, $brand-color);
+  z-index: 1000;
+  transition: width 0.1s ease-out;
+}
+
+/* ============================================================
+   #feature:toc
+   ============================================================ */
+.toc-wrapper {
+  border: 1px solid $grey-color-light;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: $spacing-unit * 0.7;
+  font-size: 15px;
+
+  summary { cursor: pointer; font-weight: 600; }
+  #toc-list { display: flex; flex-direction: column; margin-top: 10px; gap: 4px; }
+  a.toc-main { padding-left: 0; }
+  a.toc-sub { padding-left: 16px; opacity: 0.8; font-size: 14px; }
+}
+
+/* ============================================================
+   #feature:categories-tags
+   ============================================================ */
+.post-taxonomy { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+.post-category, .post-tag {
+  font-size: 13px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.post-category { background: $brand-color; color: #fff; }
+.post-tag { border: 1px solid $grey-color-light; color: inherit; }
+
+.tag-group, .category-group { margin-bottom: 28px; }
+.tag-group h2, .category-group h2 { margin-bottom: 8px; }
+
+/* ============================================================
+   #feature:copy-code
+   ============================================================ */
+.highlight { position: relative; }
+.copy-code-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(128,128,128,0.4);
+  background: rgba(128,128,128,0.15);
+  color: inherit;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.highlight:hover .copy-code-btn { opacity: 1; }
+
+/* ============================================================
+   #feature:lightbox
+   ============================================================ */
+.post-content img { cursor: zoom-in; }
+#lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+#lightbox-overlay.active { display: flex; }
+#lightbox-overlay img { max-width: 90%; max-height: 90%; border-radius: 6px; }
+
+/* ============================================================
+   #feature:share
+   ============================================================ */
+.share-buttons { margin: $spacing-unit 0; }
+.share-btn {
+  font-size: 14px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid $grey-color-light;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* ============================================================
+   #feature:related-posts / #feature:prev-next-nav
+   ============================================================ */
+.related-posts {
+  margin-top: $spacing-unit;
+  padding-top: $spacing-unit * 0.5;
+  border-top: 1px solid $grey-color-light;
+}
+.related-posts ul { padding-left: 20px; }
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: $spacing-unit 0;
+  font-size: 14px;
+}
+.post-nav a { max-width: 45%; }
+.post-nav-next { margin-left: auto; text-align: right; }
+
+/* ============================================================
+   #feature:search
+   ============================================================ */
+.search-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1500;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10vh;
+}
+.search-overlay.active { display: flex; }
+.search-box {
+  background: var(--jj-bg, $background-color);
+  color: var(--jj-text, $text-color);
+  width: 90%;
+  max-width: 560px;
+  border-radius: 10px;
+  padding: 16px;
+  max-height: 70vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+.search-box-header { display: flex; gap: 8px; margin-bottom: 12px; }
+#search-input {
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid $grey-color-light;
+  background: transparent;
+  color: inherit;
+}
+#search-close { background: none; border: none; cursor: pointer; font-size: 16px; color: inherit; }
+#search-results { list-style: none; padding: 0; margin: 0; }
+#search-results li { padding: 10px 4px; border-bottom: 1px solid $grey-color-light; }
+#search-results a { font-weight: 600; }
+#search-results p { margin: 4px 0 0; font-size: 13px; opacity: 0.8; }
+
+/* ============================================================
+   #feature:visitor-counter
+   ============================================================ */
+.visitor-counter { text-align: center; margin: 10px 0; opacity: 0.8; }
+
+/* ============================================================
+   #feature:archive-timeline
+   ============================================================ */
+.archive-year { margin-bottom: 32px; }
+.archive-year h2 { border-bottom: 1px solid $grey-color-light; padding-bottom: 6px; }
+.archive-list { list-style: none; padding: 0; }
+.archive-list li { display: flex; gap: 12px; padding: 6px 0; }
+.archive-date { opacity: 0.6; font-size: 13px; min-width: 70px; }
+
+/* ============================================================
+   #feature:reading-time
+   ============================================================ */
+.reading-time { opacity: 0.75; }

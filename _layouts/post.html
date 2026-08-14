@@ -1,0 +1,85 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.author -%}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+      {%- endif -%}
+
+      <!-- ===== #feature:reading-time ===== -->
+      {% assign words = content | strip_html | number_of_words %}
+      {% assign reading_time = words | divided_by: 200 | at_least: 1 %}
+      • <span class="reading-time">{{ reading_time }}분 읽기</span>
+    </p>
+
+    <!-- ===== #feature:categories-tags (포스트 상단 표시) ===== -->
+    {% if page.categories.size > 0 or page.tags.size > 0 %}
+    <div class="post-taxonomy">
+      {% for cat in page.categories %}<a class="post-category" href="{{ '/categories/' | relative_url }}#{{ cat | slugify }}">{{ cat }}</a>{% endfor %}
+      {% for tag in page.tags %}<a class="post-tag" href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">#{{ tag }}</a>{% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  <!-- ===== #feature:toc =====
+       소제목(h2/h3)이 2개 미만이면 main.js에서 자동으로 숨김 처리함 -->
+  <div id="toc-wrapper" class="toc-wrapper">
+    <details open>
+      <summary>목차</summary>
+      <nav id="toc-list"></nav>
+    </details>
+  </div>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <!-- ===== #feature:share ===== -->
+  <div class="share-buttons">
+    <button id="copy-link-btn" class="share-btn" type="button" data-url="{{ page.url | absolute_url }}">🔗 링크 복사</button>
+  </div>
+
+  <!-- ===== #feature:related-posts =====
+       같은 카테고리 글 중 최대 3개. 카테고리가 없으면 표시 안 함 -->
+  {% if page.categories.size > 0 %}
+    {% assign primary_cat = page.categories.first %}
+    {% assign related_posts = site.posts | where_exp: "post", "post.url != page.url" | where_exp: "post", "post.categories contains primary_cat" | limit: 3 %}
+    {% if related_posts.size > 0 %}
+    <div class="related-posts">
+      <h3>관련 글</h3>
+      <ul>
+        {% for post in related_posts %}
+        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  {% endif %}
+
+  <!-- ===== #feature:prev-next-nav ===== -->
+  {% if page.previous or page.next %}
+  <nav class="post-nav">
+    {% if page.previous %}<a class="post-nav-prev" href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>{% endif %}
+    {% if page.next %}<a class="post-nav-next" href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>{% endif %}
+  </nav>
+  {% endif %}
+
+  <!-- ===== #feature:comments-giscus ===== -->
+  {% if jekyll.environment == 'production' %}
+    {% if page.comments == false %}
+      <div class="comments-disabled-message">이 글은 댓글이 꺼져 있습니다.</div>
+    {% else %}
+      {%- include features-comments-giscus.html -%}
+    {% endif %}
+  {% endif %}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>

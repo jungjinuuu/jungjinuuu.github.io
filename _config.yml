@@ -1,47 +1,33 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-
 title: Your awesome title
 email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: >-
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "" # #config: 본인 블로그 주소로 채우기 (예: https://jungjinuuu.github.io) - 검색엔진(OG), RSS, 방문자 카운터가 이 값을 사용함
 twitter_username: jekyllrb
-github_username:  jekyll
+github_username:  jungjinuuu
+
+# ===== #feature:dark-mode =====
+# 다크모드는 minima 내장 기능이 아니라 assets/main.scss의 #feature:dark-mode 블록 +
+# assets/js/main.js의 초기화 스크립트로 직접 구현되어 있음 (버튼 클릭 시 html에 data-theme 속성을 토글)
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag # ===== #feature:seo-og ===== (OG 이미지/메타태그 자동 생성, url 값 필요)
+
+# ===== #feature:categories-tags =====
+# 포스트 작성 시 front matter에 아래처럼 추가하면 카테고리/태그 페이지에 자동 반영됨
+#   categories: [Karpathy]
+#   tags: [neural-network, backprop]
+
+# ===== #feature:comments-giscus =====
+# 특정 포스트만 댓글을 끄고 싶으면 그 포스트 front matter에 comments: false 추가
 
 # Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
 # exclude:
 #   - .sass-cache/
 #   - .jekyll-cache/

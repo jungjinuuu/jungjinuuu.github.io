@@ -1,0 +1,24 @@
+---
+layout: page
+title: Tags
+permalink: /tags/
+---
+
+{% comment %} ===== #feature:categories-tags (태그 아카이브 페이지) ===== {% endcomment %}
+{% assign all_tags = site.posts | map: "tags" | join: "," | split: "," | uniq | sort %}
+
+{% if all_tags.size == 0 %}
+<p>아직 태그가 붙은 글이 없습니다.</p>
+{% endif %}
+
+{% for tag in all_tags %}
+  {% assign posts_in_tag = site.posts | where_exp: "post", "post.tags contains tag" %}
+  <div class="tag-group" id="{{ tag | slugify }}">
+    <h2>#{{ tag }} <small>({{ posts_in_tag.size }})</small></h2>
+    <ul>
+      {% for post in posts_in_tag %}
+      <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a> <span class="reading-time">{{ post.date | date: "%Y-%m-%d" }}</span></li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endfor %}
