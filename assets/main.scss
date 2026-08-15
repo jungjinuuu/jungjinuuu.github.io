@@ -333,6 +333,16 @@ pre code {
 // ============================================================================
 .home > h1, .page-heading { font-size: 32px; letter-spacing: -0.02em; }
 
+// #feature:about-avatar
+.about-avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 28px;
+  box-shadow: var(--apl-shadow-1);
+}
+
 .post-list-wrap { max-width: var(--apl-content-width-wide); margin: 0 auto; }
 
 .post-list {
