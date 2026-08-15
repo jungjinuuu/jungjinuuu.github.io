@@ -259,10 +259,10 @@ pre code {
   margin-bottom: 10px;
 }
 .home-hero-title {
-  font-size: 48px;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  margin: 0 0 14px;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
 }
 .home-hero-subtitle {
   font-family: var(--apl-font-text);
@@ -275,8 +275,8 @@ pre code {
 
 @media screen and (max-width: 600px) {
   .home-hero { margin-bottom: 44px; }
-  .home-hero-title { font-size: 34px; }
-  .home-hero-subtitle { font-size: 17px; }
+  .home-hero-title { font-size: 22px; }
+  .home-hero-subtitle { font-size: 16px; }
 }
 
 // ============================================================================

@@ -1,9 +1,8 @@
-title: Your awesome title
-email: your-email@example.com
+title: jungjinuuu
+email: wjdwlsuuu@gmail.com
 description: >-
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  LLM, Interpretability, Reasoning, and the natural sciences behind them —
+  math, statistics, and science.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # #config: 본인 블로그 주소로 채우기 (예: https://jungjinuuu.github.io) - 검색엔진(OG), RSS, 방문자 카운터가 이 값을 사용함
 github_username: jungjinuuu
