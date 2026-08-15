@@ -180,6 +180,9 @@ pre code {
   padding-bottom: 0;
 }
 .site-header .site-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--apl-font-display);
   font-size: 15px;
   font-weight: 600;
@@ -190,6 +193,12 @@ pre code {
   transition: opacity 0.15s var(--apl-ease);
 }
 .site-header .site-title:hover { opacity: 0.7; text-decoration: none; }
+.site-title-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: block;
+}
 .site-header-right { display: flex; align-items: center; gap: 18px; }
 
 .site-nav { line-height: 1; }
