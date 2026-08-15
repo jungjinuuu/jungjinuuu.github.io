@@ -1,6 +1,6 @@
 ---
 layout: post
-title: <Andrej Karpathy> - Micrograd
+title: "Zero to Hero #1: Micrograd"
 date: 2026-08-14
 categories: [LLM]
 ---
