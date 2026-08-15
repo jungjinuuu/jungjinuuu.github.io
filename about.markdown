@@ -6,13 +6,11 @@ permalink: /about/
 
 <img src="https://github.com/jungjinuuu.png" alt="jungjinuuu" class="about-avatar">
 
-I'm someone studying AI, and this is where I write up what I'm learning along the way.
+I majored in statistics, and I'm currently a master's student researching LLM reasoning and interpretability.
 
-Right now that mostly means working through things like Andrej Karpathy's *Zero to Hero* series from the ground up — not just to get the code running, but to actually understand why each piece is built the way it is.
+My favorite question when studying something is: why did this rule, this algorithm, end up taking exactly this form, right here? I don't think of backpropagation, optimization, or neural network architectures as formulas to memorize — I see them as things that became necessary while solving some problem, almost inevitably. So I care less about the result itself and more about following the path that leads to it, tracing it through both the math and the intuition at the same time.
 
-The bigger goal behind this, though, is to get to a place where AI feels as natural as the math it's built on. Concepts like topology, homeomorphism, or measure theory weren't just invented — they emerged naturally out of people trying to understand the world rigorously. I want to dig into that same kind of "why" for AI: not just the mechanics, but the natural, almost inevitable reasoning that leads to each idea, explained mathematically and intuitively at once.
-
-So this is less a highlight reel and more a working notebook — LLMs, interpretability, reasoning, and the math and science underneath them, written up as I go.
+This blog is where I write up what I learn along the way.
 
 ## Contact
 

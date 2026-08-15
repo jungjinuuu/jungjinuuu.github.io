@@ -35,6 +35,7 @@
   --apl-radius-l: 28px;
   --apl-content-width: 692px;
   --apl-content-width-wide: 740px;
+  --apl-avatar-size: 140px;
 
   // motion / elevation
   --apl-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -268,20 +269,17 @@ pre code {
   margin-bottom: 10px;
 }
 .home-hero-title {
-  display: flex;
-  align-items: center;
-  gap: 12px;
   font-size: 26px;
   line-height: 1.2;
   letter-spacing: -0.02em;
   margin: 0 0 10px;
 }
 .home-hero-avatar {
-  width: 36px;
-  height: 36px;
+  width: var(--apl-avatar-size);
+  height: var(--apl-avatar-size);
   border-radius: 50%;
   display: block;
-  flex: none;
+  margin-bottom: 20px;
   box-shadow: var(--apl-shadow-1);
 }
 .home-hero-subtitle {
@@ -358,8 +356,8 @@ pre code {
 // .post-content img 규칙(border-radius: apl-radius-s)이 더 높은 우선순위를 가짐 —
 // img.about-avatar로 명시해서 이겨야 함
 img.about-avatar {
-  width: 72px;
-  height: 72px;
+  width: var(--apl-avatar-size);
+  height: var(--apl-avatar-size);
   border-radius: 50%;
   display: block;
   margin: 0 auto 24px;
