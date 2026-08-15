@@ -36,13 +36,13 @@ layout: default
             </time>
             {%- assign words = post.content | strip_html | number_of_words -%}
             {%- assign reading_time = words | divided_by: 200 | at_least: 1 -%}
-            • <span class="reading-time">{{ reading_time }}분 읽기</span>
+            • <span class="reading-time">{{ reading_time }} min read</span>
           </p>
         </a>
       </li>
       {%- endfor -%}
     </ul>
 
-    <p class="rss-subscribe">구독 <a href="{{ "/feed.xml" | relative_url }}">RSS</a></p>
+    <p class="rss-subscribe">Subscribe via <a href="{{ "/feed.xml" | relative_url }}">RSS</a></p>
   {%- endif -%}
 </div>

@@ -21,7 +21,7 @@ layout: default
       <!-- ===== #feature:reading-time ===== -->
       {% assign words = content | strip_html | number_of_words %}
       {% assign reading_time = words | divided_by: 200 | at_least: 1 %}
-      • <span class="reading-time">{{ reading_time }}분 읽기</span>
+      • <span class="reading-time">{{ reading_time }} min read</span>
     </p>
 
     <!-- ===== #feature:categories (포스트 상단 표시) ===== -->
@@ -47,7 +47,7 @@ layout: default
 
   <!-- ===== #feature:share ===== -->
   <div class="share-buttons">
-    <button id="copy-link-btn" class="share-btn" type="button" data-url="{{ page.url | absolute_url }}">🔗 링크 복사</button>
+    <button id="copy-link-btn" class="share-btn" type="button" data-url="{{ page.url | absolute_url }}">🔗 Copy link</button>
   </div>
 
   <!-- ===== #feature:related-posts =====
@@ -57,7 +57,7 @@ layout: default
     {% assign related_posts = site.posts | where_exp: "post", "post.url != page.url" | where_exp: "post", "post.categories contains primary_cat" | limit: 3 %}
     {% if related_posts.size > 0 %}
     <div class="related-posts">
-      <h3>관련 글</h3>
+      <h3>Related posts</h3>
       <ul>
         {% for post in related_posts %}
         <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
@@ -78,7 +78,7 @@ layout: default
   <!-- ===== #feature:comments-giscus ===== -->
   {% if jekyll.environment == 'production' %}
     {% if page.comments == false %}
-      <div class="comments-disabled-message">이 글은 댓글이 꺼져 있습니다.</div>
+      <div class="comments-disabled-message">Comments are disabled for this post.</div>
     {% else %}
       {%- include features-comments-giscus.html -%}
     {% endif %}

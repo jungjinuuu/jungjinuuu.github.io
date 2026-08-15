@@ -87,12 +87,12 @@ function initCopyCode() {
     var btn = document.createElement('button');
     btn.className = 'copy-code-btn';
     btn.type = 'button';
-    btn.textContent = '복사';
+    btn.textContent = 'Copy';
     btn.addEventListener('click', function () {
       var codeEl = block.querySelector('pre') || block;
       navigator.clipboard.writeText(codeEl.innerText).then(function () {
-        btn.textContent = '복사됨!';
-        setTimeout(function () { btn.textContent = '복사'; }, 1500);
+        btn.textContent = 'Copied!';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
       });
     });
     block.appendChild(btn);
@@ -124,7 +124,7 @@ function initShareButton() {
   btn.addEventListener('click', function () {
     navigator.clipboard.writeText(btn.dataset.url).then(function () {
       var original = btn.textContent;
-      btn.textContent = '복사됨!';
+      btn.textContent = 'Copied!';
       setTimeout(function () { btn.textContent = original; }, 1500);
     });
   });
@@ -187,7 +187,7 @@ function initSearch() {
       resultsEl.appendChild(li);
     });
     if (hits.length === 0) {
-      resultsEl.innerHTML = '<li>검색 결과가 없습니다.</li>';
+      resultsEl.innerHTML = '<li>No results found.</li>';
     }
   });
 }
