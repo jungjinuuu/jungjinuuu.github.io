@@ -343,12 +343,15 @@ pre code {
 .home > h1, .page-heading { font-size: 32px; letter-spacing: -0.02em; }
 
 // #feature:about-avatar
-.about-avatar {
-  width: 96px;
-  height: 96px;
+// minima의 기본 page.html 레이아웃도 post.html처럼 .post-content로 감싸기 때문에
+// .post-content img 규칙(border-radius: apl-radius-s)이 더 높은 우선순위를 가짐 —
+// img.about-avatar로 명시해서 이겨야 함
+img.about-avatar {
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   display: block;
-  margin-bottom: 28px;
+  margin: 0 auto 24px;
   box-shadow: var(--apl-shadow-1);
 }
 
