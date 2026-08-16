@@ -173,6 +173,7 @@ pre code {
   transition: background-color 0.3s var(--apl-ease), border-color 0.3s var(--apl-ease);
 }
 .site-header .wrapper {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -180,6 +181,10 @@ pre code {
   padding-top: 0;
   padding-bottom: 0;
 }
+// minima의 .wrapper:after는 float 레이아웃 시절 clearfix인데, flex 컨테이너 안에서는
+// 빈 콘텐츠라도 진짜 3번째 flex item으로 취급돼서 .site-header-right가 끝이 아니라
+// 가운데쯤으로 밀려나는 원인이 됨 — content:none으로 아예 박스 생성을 막음
+.site-header .wrapper::after { content: none; }
 .site-header .site-title {
   display: flex;
   align-items: center;
@@ -202,7 +207,15 @@ pre code {
 }
 .site-header-right { display: flex; align-items: center; gap: 18px; }
 
-.site-nav { line-height: 1; }
+// 로고는 왼쪽, 버튼들은 오른쪽에 고정하되 nav 링크는 wrapper 안에서 진짜 가운데
+// (Apple.com 상단바 방식) — position:absolute로 flex 흐름에서 빼서 중앙 정렬함
+.site-nav {
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .site-nav .trigger.trigger-mobile,
 .site-nav .nav-mobile-toggle { display: none; }
 .site-nav > .trigger { display: flex; align-items: center; gap: 22px; }
@@ -231,6 +244,7 @@ pre code {
 .header-btn:hover { color: var(--apl-text); background: var(--apl-fill-subtle); }
 
 @media screen and (max-width: 600px) {
+  .site-nav { position: static; transform: none; }
   .site-nav > .trigger { display: none; }
   .site-nav .nav-mobile-toggle { display: block; cursor: pointer; }
   .site-nav input#nav-trigger { position: absolute; opacity: 0; }
