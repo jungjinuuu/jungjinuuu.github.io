@@ -352,6 +352,12 @@ pre code {
 .post-content img {
   border-radius: var(--apl-radius-s);
   box-shadow: var(--apl-shadow-1);
+  // matplotlib이 뽑아주는 SVG는 배경이 투명하고 축/글자가 검정 고정색이라,
+  // 다크모드 배경 위에서는 그래프 선만 남고 축/텍스트가 안 보이는 문제가 있었음.
+  // 항상 흰 배경(인쇄된 종이 위에 그래프가 있는 느낌)을 깔아서 테마와 무관하게
+  // 항상 보이도록 함 — 이미 자체 배경이 있는 이미지는 그 배경에 가려져서 무해함.
+  background: #fff;
+  padding: 12px;
 }
 .post-content figcaption {
   font-size: 13px;
@@ -679,9 +685,9 @@ img.about-avatar {
 .archive-list a:hover { color: var(--apl-accent); text-decoration: none; }
 .archive-date { color: var(--apl-text-tertiary); font-size: 13px; min-width: 44px; flex: none; padding-top: 2px; }
 
-// ============================================================================
-// #feature:reading-time
-// ============================================================================
+// 날짜 표기 등 부가 텍스트에 재사용하는 muted 텍스트 색
+// (원래 있던 예상 읽기 시간 기능은 뺐음 — 글들이 다 비슷한 분량이라
+// 항상 같은 숫자로 떠서 의미가 없었음)
 .reading-time { color: var(--apl-text-secondary); }
 
 // ============================================================================
